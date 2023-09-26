@@ -1,0 +1,21 @@
+<div class="body">
+
+    <div class="header">
+        <h1>Newspage</h1>
+    </div>
+
+    <!-- <div class="">
+
+    </div> -->
+
+    <div *ngFor="let item of newsArray" style="padding: 10px;">
+        <app-card-noticia [data]="item"></app-card-noticia>
+
+    </div>
+
+    <div class="flex-auto">
+        <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="20"
+            [totalRecords]="totalRecords"></p-paginator>
+    </div>
+
+</div>

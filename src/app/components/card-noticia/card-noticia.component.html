@@ -1,0 +1,25 @@
+<p-card [style]="{'padding': '15px'}">
+
+    <ng-template pTemplate="header">
+
+        <h3>{{data.title}}</h3>
+
+        <div class="wrapper">
+            <span><b>Autor: {{data.author}}</b></span>
+            <span><b>Data de publicação: {{data.publishedAt|date:'d/MM/yyyy'}}</b></span>
+        </div>
+    </ng-template>
+
+    <p class="description">
+
+        {{data.description}}
+
+    </p>
+
+    <ng-template pTemplate="footer">
+
+        <span><b>Ler post completo: </b><a (click)="redirectTo(data.url!)">{{data.source?.name}}</a></span>
+    </ng-template>
+
+
+</p-card>
