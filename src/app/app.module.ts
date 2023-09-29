@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { PaginatorModule } from 'primeng/paginator';
+import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PaginatorModule } from 'primeng/paginator';
     AppRoutingModule,
     ComponentsModule,
     HttpClientModule,
-    PaginatorModule
+    ReactiveFormsModule,
+    PaginatorModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

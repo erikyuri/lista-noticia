@@ -16,8 +16,8 @@ export class RequestService {
   httpOptions = {
   };
 
-  getNews(page: string): Observable<News> {
-    return this.http.get<News>(`https://newsapi.org/v2/everything?q=apple&sortBy=popularity&pageSize=20&page=${page}&apiKey=${this.apiKey}`,
+  getNews(page: string, searchTerm: string): Observable<News> {
+    return this.http.get<News>(`https://newsapi.org/v2/everything?q=${searchTerm}&sortBy=popularity&pageSize=20&page=${page}&apiKey=${this.apiKey}`,
       this.httpOptions).pipe(catchError(this.handleError))
   }
 

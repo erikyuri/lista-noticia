@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NewsArticles } from 'src/app/news.model';
 import { RequestService } from 'src/app/request.service';
@@ -13,6 +14,9 @@ export class PaginaNoticiaComponent implements OnInit {
   newsArray?: NewsArticles[] = [];
   totalRecords?: any;
   first: number = 1;
+  form = new FormGroup({
+    searchTerm: new FormControl('Apple')
+  });
 
   constructor(
     private requestService: RequestService,
@@ -26,7 +30,7 @@ export class PaginaNoticiaComponent implements OnInit {
   }
 
   getNews(page: string) {
-    this.requestService.getNews(page).subscribe(res => {
+    this.requestService.getNews(page, this.form.value.searchTerm!).subscribe(res => {
       this.totalRecords = res.totalResults;
       this.newsArray = res.articles;
     })
@@ -46,5 +50,8 @@ export class PaginaNoticiaComponent implements OnInit {
     })
   }
 
-  
+  search() {
+    this.getNews('1');
+  }
+
 }

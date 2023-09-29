@@ -4,9 +4,15 @@
         <h1>Newspage</h1>
     </div>
 
-    <!-- <div class="">
+    <form [formGroup]="form" class="input-wrapper" (ngSubmit)="search()">
 
-    </div> -->
+        <span class="p-input-icon-right">
+            <i class="pi pi-search"></i>
+            <input type="text" style="min-width: 500px;" pInputText
+                formControlName="searchTerm" />
+        </span>
+
+    </form>
 
     <div *ngFor="let item of newsArray" style="padding: 10px;">
         <app-card-noticia [data]="item"></app-card-noticia>
